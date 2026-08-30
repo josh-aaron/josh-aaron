@@ -147,6 +147,7 @@ a { color: inherit; }
     align-items: center;
     gap: clamp(2.5rem, 6vw, 5rem);
 }
+.hero-media { min-width: 0; }
 .hero h1 {
     font-family: var(--serif);
     font-optical-sizing: auto;
@@ -251,6 +252,49 @@ a { color: inherit; }
     color: var(--faint);
     align-self: center;
 }
+
+/* =========================================================
+   Services
+   ========================================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+}
+.service-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2.1rem 2rem;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+                background-color 0.3s var(--ease);
+}
+.service-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(228, 180, 87, 0.4);
+    background: #121a26;
+}
+.service-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+}
+.service-icon svg { width: 24px; height: 24px; }
+.service-card h3 {
+    font-family: var(--serif);
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+.service-card p { color: var(--muted); font-size: 0.95rem; }
 
 /* =========================================================
    Work
@@ -452,16 +496,18 @@ a { color: inherit; }
     .hero-media { order: -1; }
     .portrait { margin: 0 auto; }
     .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 620px) {
     .container { padding: 0 1.4rem; }
     .site-header .bar { height: auto; padding: 0.9rem 0; flex-direction: column; gap: 0.7rem; }
-    .nav { gap: 1.5rem; }
+    .nav { gap: 0.9rem 1.3rem; flex-wrap: wrap; justify-content: center; }
     .hero { padding-top: 9.5rem; }
     .section-head { flex-wrap: wrap; }
     .section-head .aside { display: none; }
     .work-card { padding: 1.7rem 1.5rem; }
     .work-card.upcoming { flex-direction: column; align-items: flex-start; }
     .work-card .ghost-index { font-size: 4rem; }
+    .services-grid { grid-template-columns: 1fr; }
 }
